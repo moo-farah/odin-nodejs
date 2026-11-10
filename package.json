@@ -1,0 +1,12 @@
+{
+  "name": "odin-nodejs-course",
+  "version": "1.0.0",
+  "description": "Coursework and projects from The Odin Project’s Node.js course, built with Node.js and Express",
+  "license": "ISC",
+  "author": "Mohamed Farah",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
