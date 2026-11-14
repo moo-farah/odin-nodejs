@@ -1,6 +1,6 @@
 # SETTING UP A SERVER WITH HTTP
 
-### Introduction to HTTP
+## Introduction to HTTP
 HTTP, short for Hypertext Transfer Protocol, is a request-response protocol that serves as the foundation of data exchange and computing within the client-server computing model.
 
 Simpler terms is that HTTP helps facilitate the exchange of information between a client (i.e. website, mobile app) and a server.
@@ -25,7 +25,7 @@ flowchart LR
   Client -->|HTTP Request| Server
   Server -->|HTTP Response| Client
 ```
-### The Structure of HTTP
+## The Structure of HTTP
 HTTP requests and responses have specific structures to help facilitate the exchange of information between a client and a server.
 
 ### Requests
@@ -44,7 +44,7 @@ Responses are comprised of elements similar to those in requests, with a few dif
 5. Body: The body of a response contains data corresponding to the fetched resource.
 
 
-### The movement of HTTP
+## The movement of HTTP
 The requests/responses contain all of the information needed to communicate with other entities on the web efficiently, but how do these messages actually make it to their destinations? Just as a letter requires a carrier to arrive at its destination, so too does an HTTP requesr.
 
 #### TCP
@@ -59,3 +59,37 @@ UDP, or User Datagram Protocol, is a less commonly used transport protocol. It o
 #### TLS 
 TLS, also known as Transport Layer Security, is a widely adopted security protocol designed to facilitate secure data transmission via encryption.
 TLS evolved out of the encryption protocol known as SSL (Secure Sockets Layer)
+
+#### HTTP/1.1 
+Was one of the first versions of the HTTP protocol to be designed and implemented. It operates by sending messages in the form of text
+HTTP/1.1 is commonly used over TCP and is the slowest of the HTTP versions regarding data transmission.
+
+#### HTTP/2
+is a major version of HTTP/1.1, developed with the intent to try and reduce web page load latency. However, the most significant departure from HTTP/1.1 is the encapsulation of all messages in binary format rather than plain text.
+
+#### HTTP/3
+is the third major version of HTTP while there are quite a few complex technological differences between HTTP/3 and the previous versions
+One of the most important is how the protocol deals with lost packets
+
+## The HTTP Module
+The process HTTP requests in JavaScript and Node.js, we can use the built-in **http module**.
+http is not a global module, so it must be imported before use.
+
+The http module includes various methods that are useful for engaging with HTTP network requests and responses.
+**.createServer()** method. This methods it creates an HTTP server.
+ - The .createServer() method takes a single argument in the form of a callback function. This callback function has two primary arguments: the request (commonly written as req) and the response (commonlu written as res).
+ - The req object contains all of the information about an HTTP request ingested by the server
+   - It exposes information such as the HTTP method (GET, POST, etc.), the pathname, headers, body and so on
+   - The res object contains methods and properties pertaining to the generation of a response by the HTTP server. This object contains methods such as **.setHeader()** (sets HTTP headers on the response),
+    **.statusCode** (set the status code of the response), and .**end()** (dispatches the response to the client who made the request). In the preceding code, we use the .end() method to send the string 'Server is Running!' to the client
+
+
+## The Anatomy of the URL
+A URL can provide a great deal of information about a request and how it is expected to behave.
+(**https://codeacademy.com/articles?search=node**)
+
+1. Protocol: The protocol of the url denotes which protocol is being used for this particular resource. For instance a URL could have a protocol of HTTP (http://) or HTTPS (https://)
+2. Domain: The domain of the URL is a unique reference that identifies a website on the Interent
+3. Path: The path refers to a file or directory on the web server
+4. Query: The query is commonly found on pages that contain dynamic content. Queries are prefixed by a question mark (?) and appear at the end of a URL
+  - Queries can be comprised of multiple key=value pairs, separated by an ampersand (&) with each key being assigned it corresponding value using an equals sign (=)

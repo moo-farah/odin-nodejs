@@ -1,15 +1,13 @@
-const express = require('express');
-const app = express();
+const http = require('http');
 
-app.get('/', (req, res) => {
-    res.send('Hello World')
+const server = http.createServer((req, res) => {
+    res.end('Server is running!');
 });
 
 const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, (error) => {
-    if (error) {
-        throw error;
-    }
-    console.log(`Server is running on port ${PORT}`);
-});
+server.listen(PORT, () => {
+    const {address, port} = server.address();
+    console.log(`Server is running on https://${address}:${port}`);
+})
+
