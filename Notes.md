@@ -93,3 +93,31 @@ A URL can provide a great deal of information about a request and how it is expe
 3. Path: The path refers to a file or directory on the web server
 4. Query: The query is commonly found on pages that contain dynamic content. Queries are prefixed by a question mark (?) and appear at the end of a URL
   - Queries can be comprised of multiple key=value pairs, separated by an ampersand (&) with each key being assigned it corresponding value using an equals sign (=)
+
+
+  ## What is a back-end?
+  The back-end is all of the technology required to process the incoming request and generate and send the response to the client
+  This typically has three parts:
+    - The server: This is the computer that receives requests
+    - The app: This is the application running on the server that listens for requests, retrieves information from the database, and sends a response
+    - The database: Databases are used to organize and persist data
+
+  ## What is a server?
+    A server is simply a computer that listens for incoming requests
+
+  ## What are the core functions of the app?
+  The server runs an app that contains logic about how to respond to various requests based on the **HTTP verb** and the **Uniform Resource Identifier (URI)**
+  The pair of an HTTP verbs and a URI is called a route, and matching them based on a request is called routing
+
+  **Middleware:** is any code that executes between the server receiving a request and sending a response
+  - These middleware functions might modify the request object, query the database, or otherwise process the incoming request
+  - Middleware functions typically end by passing control to the next middleware function, rather than by sending a response
+  - Middleware function will be called that ends the request-response cycle by sending an HTTP response back to the client
+
+  ## What is a database, and why do we need to use them?
+  These databases provide an interface to save data in a persistent way in memory.
+  Storing the data in a database both reduces the load on the main memory of the server CPU and allows the data to be retrieved if the server crashes or loses power.
+
+  ## What is a Web API?
+  An API (Application Programming Interface) is a way for one piece of software to talk to another over the internet, using standard web protocols, usually HTTP
+  A Web API is an interface created by the back-end: the collection of endpoints and the resources these endpoints expose
